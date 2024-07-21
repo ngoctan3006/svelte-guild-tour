@@ -4,43 +4,95 @@
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import Tour from '$lib/tour/Tour.svelte';
 	import { Button } from '@sveltestrap/sveltestrap';
+	import type { TourSteps } from '$lib/tour/types';
+	import { onMount } from 'svelte';
 
 	let logoEl: HTMLImageElement;
 	let textEl: HTMLHeadingElement;
+	let counterEl: HTMLDivElement;
 
-	let isOpenTour = false;
+	$: isOpenTour = false;
+
+	onMount(() => {
+		counterEl = document.getElementById('counter') as HTMLDivElement;
+	});
 
 	$: steps = [
 		{
 			title: 'Welcome',
 			description: 'Welcome to SvelteKit',
-			target: logoEl
-		},
-		{
-			title: 'Welcome',
-			description: 'Welcome to SvelteKit',
-			target: logoEl,
+			target: counterEl,
 			placement: 'top'
 		},
 		{
 			title: 'Welcome',
 			description: 'Welcome to SvelteKit',
-			target: textEl,
+			target: counterEl,
+			placement: 'bottom'
+		},
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
 			placement: 'left'
 		},
 		{
 			title: 'Welcome',
 			description: 'Welcome to SvelteKit',
-			target: textEl,
+			target: counterEl,
 			placement: 'right'
+		},
+
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'top-left'
 		},
 		{
 			title: 'Welcome',
 			description: 'Welcome to SvelteKit',
-			target: textEl,
-			placement: 'top'
+			target: counterEl,
+			placement: 'top-right'
+		},
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'bottom-left'
+		},
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'bottom-right'
+		},
+
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'left-top'
+		},
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'left-bottom'
+		},
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'right-top'
+		},
+		{
+			title: 'Welcome',
+			description: 'Welcome to SvelteKit',
+			target: counterEl,
+			placement: 'right-bottom'
 		}
-	];
+	] as TourSteps[];
 </script>
 
 <svelte:head>
